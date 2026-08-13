@@ -1,0 +1,266 @@
+/* Minimalist & Seamless Character Linktree - Extra Large Character Edition */
+:root {
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+
+    --bg-page: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+
+    /* Social Brand Colors */
+    --color-letterboxd: #00e054;
+    --color-backloggd: #7052ff;
+    --color-spotify: #1ed760;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Page Layout */
+.page-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 6vw;
+    position: relative;
+    z-index: 2;
+}
+
+.content-center {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    text-align: center;
+    align-items: center;
+}
+
+.title {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+}
+
+.subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* 3 Buttons Stack */
+.buttons-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.3rem 1.6rem;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 22px;
+    text-decoration: none;
+    color: var(--text-primary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+}
+
+.btn-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+}
+
+.btn-label {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    flex-grow: 1;
+    color: var(--text-primary);
+}
+
+.btn-arrow {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    transition: all 0.25s ease;
+}
+
+/* Individual Button Hover Effects & Pointer Highlights */
+/* Button 1: Letterboxd */
+.btn-letterboxd:hover,
+.btn-letterboxd.active-hover {
+    border-color: var(--color-letterboxd);
+    background: #ffffff;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(0, 224, 84, 0.22);
+}
+
+.btn-letterboxd:hover .btn-icon,
+.btn-letterboxd.active-hover .btn-icon {
+    background: rgba(0, 224, 84, 0.12);
+}
+
+/* Button 2: Backloggd */
+.btn-backloggd:hover,
+.btn-backloggd.active-hover {
+    border-color: var(--color-backloggd);
+    background: #ffffff;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(112, 82, 255, 0.22);
+}
+
+.btn-backloggd:hover .btn-icon,
+.btn-backloggd.active-hover .btn-icon {
+    background: rgba(112, 82, 255, 0.12);
+    color: var(--color-backloggd);
+}
+
+/* Button 3: Spotify */
+.btn-spotify:hover,
+.btn-spotify.active-hover {
+    border-color: var(--color-spotify);
+    background: #ffffff;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(30, 215, 96, 0.22);
+}
+
+.btn-spotify:hover .btn-icon,
+.btn-spotify.active-hover .btn-icon {
+    background: rgba(30, 215, 96, 0.12);
+    color: var(--color-spotify);
+}
+
+.social-btn:hover .btn-arrow,
+.social-btn.active-hover .btn-arrow {
+    color: var(--text-primary);
+    transform: translateX(4px);
+}
+
+/* Seamless Character Overlay System (Supports both Left & Right Images) */
+.character-overlay {
+    position: fixed;
+    bottom: 0vh;
+    height: 110vh;
+    width: 52vw;
+    max-width: 920px;
+    z-index: 1;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    display: flex;
+    align-items: flex-end;
+}
+
+.character-overlay-left {
+    left: -6vw;
+    justify-content: flex-start;
+}
+
+.character-overlay-right {
+    right: -2vw;
+    justify-content: flex-end;
+}
+
+.character-img {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s ease;
+    transform: scale(1.0);
+}
+
+.character-overlay-left .character-img {
+    left: -20px;
+    object-position: bottom left;
+    transform-origin: bottom left;
+}
+
+.character-overlay-right .character-img {
+    right: 20px;
+    object-position: bottom right;
+    transform-origin: bottom right;
+}
+
+.character-img.active {
+    opacity: 1;
+    transform: scale(1.10);
+}
+
+/* Specific styling for left side character */
+#sidechar {
+    height: 85%;
+}
+
+#sidechar.active {
+    opacity: 1;
+    transform: scale(1.02);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+    .page-container {
+        padding: 3rem 1.5rem;
+    }
+
+    .content-center {
+        max-width: 100%;
+    }
+
+    .character-overlay {
+        height: 78vh;
+        width: 85vw;
+        opacity: 0.95;
+    }
+
+    .character-overlay-left {
+        left: -10vw;
+    }
+
+    #sidechar {
+        height: 75%;
+        left: -20px;
+    }
+}

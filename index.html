@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Socials</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Center Section: 3 Social Buttons -->
+        <main class="content-center">
+            <header class="header">
+                <h1 class="title">My Socials</h1>
+                <p class="subtitle">Platform that i use</p>
+            </header>
+
+            <div class="buttons-stack">
+                <!-- b1: Letterboxd -->
+                <a href="https://boxd.it/6UuzH" target="_blank" class="social-btn btn-letterboxd" id="b1" data-pose="1">
+                    <div class="btn-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                            <circle cx="7" cy="12" r="3.5" fill="#00e054" />
+                            <circle cx="12" cy="12" r="3.5" fill="#ff8000" />
+                            <circle cx="17" cy="12" r="3.5" fill="#40bcf4" />
+                        </svg>
+                    </div>
+                    <span class="btn-label">Letterboxd</span>
+                    <i class="fa-solid fa-arrow-right btn-arrow"></i>
+                </a>
+
+                <!-- b2: Backloggd -->
+                <a href="https://bckl.gg/o9tt" target="_blank" class="social-btn btn-backloggd" id="b2" data-pose="2">
+                    <div class="btn-icon">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <span class="btn-label">Backloggd</span>
+                    <i class="fa-solid fa-arrow-right btn-arrow"></i>
+                </a>
+
+                <!-- b3: Spotify -->
+                <a href="https://open.spotify.com/user/7bwxjs29b8k47vsanawkj3p62?si=b17b47db97d24ab2" target="_blank" class="social-btn btn-spotify" id="b3" data-pose="3">
+                    <div class="btn-icon">
+                        <i class="fa-brands fa-spotify"></i>
+                    </div>
+                    <span class="btn-label">Spotify</span>
+                    <i class="fa-solid fa-arrow-right btn-arrow"></i>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Left Bottom Corner: Character Overlay Slot (For left image) -->
+    <div class="character-overlay character-overlay-left" id="left-character-overlay">
+        <img src="image/sidechar.png" alt="Side Character" id="sidechar" class="character-img always-active active">
+    </div>
+
+    <!-- Right Bottom Corner: PNG Character Overlay -->
+    <div class="character-overlay character-overlay-right">
+        <img src="image/socials 1.png" alt="Pose 1" id="pose-1" class="character-img active">
+        <img src="image/socials 2.png" alt="Pose 2" id="pose-2" class="character-img">
+        <img src="image/socials 3.png" alt="Pose 3" id="pose-3" class="character-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
